@@ -1,2 +1,2 @@
 # LeetCode-Solution
-LeetCode结题报告
+LeetCode解题报告
