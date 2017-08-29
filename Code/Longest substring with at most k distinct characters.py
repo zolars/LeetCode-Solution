@@ -9,8 +9,7 @@ class Solution(object):
         :rtype: int
         """
         lookup = {}
-        maxlenght = 0
-        left = 0
+        maxlenght, left = 0, 0
 
         for i, char in enumerate(s):
             if char in lookup:
