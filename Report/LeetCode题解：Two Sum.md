@@ -1,24 +1,11 @@
----
-title: LeetCode题解：Two Sum
-date: 2017-07-28 15:57:32
-categories: Coding
-tags:
-- LeetCode
-- python
-- 算法
-description: Given an array of integers, return indices of the two numbers such that they add up to a specific target.
-toc: true
-mathjax: true
-#博客#
-#学习/编程/leetcode#
----
->今天开始刷刷题，使用python2.7语言。为何学了python3.6却要用2.7呢？因为python2.7的适用性更广（其实是因为LeetCode只支持python2.7的缘故），那么，就此开始吧。
+# LeetCode题解：Two Sum
+> 今天开始刷刷题，使用python2.7语言。为何学了python3.6却要用2.7呢？因为python2.7的适用性更广（其实是因为LeetCode只支持python2.7的缘故），那么，就此开始吧。  
 
 ## 题目
 Given an array of integers, return **indices** of the two numbers such that they add up to a specific target.
 You may assume that each input would have **exactly** one solution, and you may not use the same element twice.
 
-* Example:
+* Example
 Given nums = [2, 7, 11, 15], target = 9,
 Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
@@ -89,3 +76,17 @@ class Solution(object):
 if __name__ == '__main__':
     print Solution().twoSum([1, 2, 3, 4], 6)
 ```
+- - - -
+title: LeetCode题解：Two Sum
+date: 2017-07-28 15:57:32
+categories: Coding
+tags:
+- leetcode
+- python
+- 算法
+description: Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+toc: true
+mathjax: true
+
+#code/leetcode
+- - - -

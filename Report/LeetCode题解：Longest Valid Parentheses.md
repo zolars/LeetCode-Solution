@@ -1,23 +1,10 @@
----
-title: LeetCode题解：Longest Valid Parentheses
-date: 2017-08-04 10:47:11
-categories: Coding
-tags:
-- leetcode
-- python
-- 算法
-description: Given a string containing just the characters ’(‘ and ’)’ , find the length of the longest valid (well-formed) parentheses substring.
-toc: true
-mathjax: true
-#blog
-#code/leetcode
----
-
+# LeetCode题解：Longest Valid Parentheses
 ## 题目
-Given a string containing just the characters`'('`and`')'`, find the length of the longest valid (well-formed) parentheses substring.
+Given a string containing just the characters`’(‘`and`’)’`, find the length of the longest valid (well-formed) parentheses substring.
 
-For`'(()'`, the longest valid parentheses substring is`'()'`, which has length = 2.
-Another example is`')()())'`, where the longest valid parentheses substring is`'()()'`, which has length = 4.
+* Example
+For`“(()”`, the longest valid parentheses substring is`”()”`, which has length = 2.
+Another example is`")()())"`, where the longest valid parentheses substring is`"()()"`, which has length = 4.
 
 ## 题解
 基础的堆栈问题——回文字符串。
@@ -81,3 +68,18 @@ if __name__ == '__main__':
     # print(Solution().longestValidParentheses1("()"))
     print(Solution().longestValidParentheses2("()"))
 ```
+
+- - - -
+title: LeetCode题解：Longest Valid Parentheses
+date: 2017-08-04 10:47:11
+categories: Coding
+tags:
+- leetcode
+- python
+- 算法
+description: Given a string containing just the characters ’(‘ and ’)’ , find the length of the longest valid (well-formed) parentheses substring. 
+toc: true
+mathjax: true 
+
+#code/leetcode
+- - - -
