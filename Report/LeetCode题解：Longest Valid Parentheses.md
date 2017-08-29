@@ -69,17 +69,5 @@ if __name__ == '__main__':
     print(Solution().longestValidParentheses2("()"))
 ```
 
-- - - -
-title: LeetCode题解：Longest Valid Parentheses
-date: 2017-08-04 10:47:11
-categories: Coding
-tags:
-- leetcode
-- python
-- 算法
-description: Given a string containing just the characters ’(‘ and ’)’ , find the length of the longest valid (well-formed) parentheses substring. 
-toc: true
-mathjax: true 
 
 #code/leetcode
-- - - -

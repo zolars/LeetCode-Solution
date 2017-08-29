@@ -76,17 +76,5 @@ class Solution(object):
 if __name__ == '__main__':
     print Solution().twoSum([1, 2, 3, 4], 6)
 ```
-- - - -
-title: LeetCode题解：Two Sum
-date: 2017-07-28 15:57:32
-categories: Coding
-tags:
-- leetcode
-- python
-- 算法
-description: Given an array of integers, return indices of the two numbers such that they add up to a specific target.
-toc: true
-mathjax: true
 
 #code/leetcode
-- - - -
