@@ -32,7 +32,7 @@ class Solution(object):
 
     def longestValidParentheses2(self, s):
         """
-        Method_two:Stacks
+        Method_two : Stacks
         :type s: str
         :rtype: int
         """
