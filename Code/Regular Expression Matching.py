@@ -1,8 +1,38 @@
-# Regular Expression Matching
-
-
+# -*- coding: utf-8 -*-
 class Solution(object):
-    def isMatch(self, s, p):
+    def isMatch1(self, ss, pp):
+        """
+        :type s: str
+        :type p: str
+        :rtype: bool
+        """
+        # 预处理
+        global s, p
+        s = ss + '\n'
+        p = pp + '\n'
+
+        def match(sn, pn):
+            if p[pn] == '\n':
+                return s[sn] == '\n'
+
+            else:
+                if len(p) - pn == 1 or p[pn + 1] != "*":
+                    if len(s) - 1 > sn and (s[sn] == p[pn] or p[pn] == '.'):
+                        return match(sn + 1, pn + 1)
+                    else:
+                        return False
+                else:
+                    while sn < len(s) - 1 and (s[sn] == p[pn] or p[pn] == '.'):
+                        if match(sn, pn + 2):
+                            return True
+                        else:
+                            sn += 1
+                    else:
+                        return match(sn, pn + 2)
+
+        return match(0, 0)
+
+    def isMatch2(self, s, p):
         """
         :type s: str
         :type p: str
@@ -26,4 +56,4 @@ class Solution(object):
 
 
 if __name__ == '__main__':
-    print(Solution().isMatch("aab", "a*c*a*ab"))
+    print(Solution().isMatch1("aab", "a*c*a*ab"))
