@@ -15,27 +15,12 @@ class Solution(object):
         ans, mark, k = 0, 1, True
 
         for i in str:
-            if k:
-                if i == ' ':
-                    pass
-                elif i == '+':
+            if k and (i == ' ' or i == '+' or i == '-'):
+                if i == '+':
                     k = False
                 elif i == '-':
                     k = False
                     mark = -1
-
-                elif i in numdic:
-                    k = False
-                    ans = ans * 10 + numdic[i]
-
-                else:
-                    ans *= mark
-                    if ans < -2147483648:
-                        return(-2147483648)
-                    elif ans > 2147483647:
-                        return(2147483647)
-                    else:
-                        return(ans)
 
             else:
                 if i in numdic:
