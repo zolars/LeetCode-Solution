@@ -54,6 +54,30 @@ class Solution(object):
                 s = s[1:]
             return self.isMatch(s, p[2:])
 
+    def isMatch3(self, s, p):
+        lenght = len(s)
+
+        if lenght < len(p) - p.count('*') * 2:
+            return False
+
+        p += 'w'
+
+        dp = [True] + [False] * lenght
+        print dp
+        for i in xrange(len(p) - 1):
+            if p[i + 1] == '*':
+                for j in range(lenght):
+                    if not dp[j + 1]:
+                        dp[j + 1] = dp[j] and (p[i] == s[j] or p[i] == '.')
+
+            elif p[i] != '*':
+                for j in reversed(range(1, lenght + 1)):
+                    dp[j] = dp[j - 1] and (p[i] == s[j - 1] or p[i] == '.')
+                dp[0] = False
+            print p[i], dp
+
+        return dp[-1]
+
 
 if __name__ == '__main__':
-    print(Solution().isMatch1("aab", "a*c*a*ab"))
+    print(Solution().isMatch3("dddd", "d*"))
