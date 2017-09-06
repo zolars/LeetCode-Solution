@@ -9,7 +9,6 @@ class Solution(object):
             nums[i] = max(nums[i] + nums[i - 1], nums[i])
             ans = max(ans, nums[i])
 
-        print nums
         return ans
 
 
