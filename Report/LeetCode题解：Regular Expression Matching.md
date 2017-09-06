@@ -30,7 +30,7 @@ isMatch("ab", “c*ab”) → true
 
 ## 代码
 ```python
-# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*- 
 class Solution(object):
     def isMatch1(self, ss, pp):
         """
@@ -64,7 +64,7 @@ class Solution(object):
 
         return match(0, 0)
 
-    def isMatch2(self, s, p):
+    def isMatch(self, s, p):
         """
         :type s: str
         :type p: str
@@ -88,8 +88,8 @@ class Solution(object):
 
 
 if __name__ == '__main__':
-    print(Solution().isMatch1("aab", "a*c*a*ab"))
+    print(Solution().isMatch("aab", "a*c*a*ab"))
 ```
-
+ 
 
 #code/leetcode
