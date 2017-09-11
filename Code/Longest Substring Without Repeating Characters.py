@@ -2,9 +2,9 @@
 
 
 class Solution(object):
-    def lengthOfLongestSubstring(self, s):
+    def lengthOfLongestSubstring1(self, s):
         """
-        Method_one : use the deque function
+        Method_one: deque function
         :type s: str
         :rtype: int
         """
@@ -23,13 +23,13 @@ class Solution(object):
 
     def lengthOfLongestSubstring2(self, s):
         """
-        Method_two : use the queue points.
+        Method_two: the queue points
         :type s: str
         :rtype: int
         """
         longest = 0
         start = 0
-        visited = [False for _ in xrange(256)]
+        visited = [False for i in xrange(256)]
 
         for i, char in enumerate(s):
             if visited[ord(char)]:
@@ -44,4 +44,4 @@ class Solution(object):
 
 
 if __name__ == '__main__':
-    print(Solution().lengthOfLongestSubstring("abcaabc"))
+    print(Solution().lengthOfLongestSubstring("aabbcadfraif;o"))
