@@ -10,14 +10,14 @@ The matching should cover the entire input string (not partial).
 
 The function prototype should be: bool isMatch(const char _s, const char_ p)
 
-- Example isMatch("aa","a") → false isMatch("aa","aa") → true isMatch("aaa","aa") → false isMatch("aa", "a_") → true isMatch("aa", "._") → true isMatch("ab", "._") → true isMatch("ab", "c_ab") → true
+-   Example isMatch("aa","a") → false isMatch("aa","aa") → true isMatch("aaa","aa") → false isMatch("aa", "a_") → true isMatch("aa", "._") → true isMatch("ab", ".\_") → true isMatch("ab", "c_ab") → true
 
 ## 题解
 
 类似于正则表达式的匹配，但是题目有点坑：
 
-1. 第一行字符串不会含有`'.'`和`'*'`，否则难度直线飙升。
-2. 这里面的`'*'`是可以匹配0个字符的啊！开始没注意，白敲半小时。
+1.  第一行字符串不会含有`'.'`和`'*'`，否则难度直线飙升。
+2.  这里面的`'*'`是可以匹配0个字符的啊！开始没注意，白敲半小时。
 
 那么这题的正确做法是什么呢？很明显是DP的递归，但是有很多边界要想清楚。一开始做这题就死在了边界上。
 
