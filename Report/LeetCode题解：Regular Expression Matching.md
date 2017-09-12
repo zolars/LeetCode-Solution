@@ -1,26 +1,21 @@
 # LeetCode题解：Regular Expression Matching
+
 ## 题目
+
 Implement regular expression matching with support for`'.'`and`'*'`.
 
-`'.'`Matches any single character.
-`'*'`Matches zero or more of the preceding element.
+`'.'`Matches any single character. `'*'`Matches zero or more of the preceding element.
 
 The matching should cover the entire input string (not partial).
 
-The function prototype should be:
-bool isMatch(const char *s, const char *p)
+The function prototype should be: bool isMatch(const char _s, const char_ p)
 
-* Example
-isMatch("aa","a") → false
-isMatch("aa","aa") → true
-isMatch("aaa","aa") → false
-isMatch("aa", "a*") → true
-isMatch("aa", ".*") → true
-isMatch("ab", ".*") → true
-isMatch("ab", “c*ab”) → true
+- Example isMatch("aa","a") → false isMatch("aa","aa") → true isMatch("aaa","aa") → false isMatch("aa", "a_") → true isMatch("aa", "._") → true isMatch("ab", "._") → true isMatch("ab", "c_ab") → true
 
 ## 题解
+
 类似于正则表达式的匹配，但是题目有点坑：
+
 1. 第一行字符串不会含有`'.'`和`'*'`，否则难度直线飙升。
 2. 这里面的`'*'`是可以匹配0个字符的啊！开始没注意，白敲半小时。
 
@@ -29,8 +24,9 @@ isMatch("ab", “c*ab”) → true
 重要的优化：看了大神的代码，发现不需要单独判断尽头，可以一边走一边判断。
 
 ## 代码
+
 ```python
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
 class Solution(object):
     def isMatch1(self, ss, pp):
         """
@@ -90,6 +86,5 @@ class Solution(object):
 if __name__ == '__main__':
     print(Solution().isMatch("aab", "a*c*a*ab"))
 ```
- 
 
-#code/leetcode
+# code/leetcode

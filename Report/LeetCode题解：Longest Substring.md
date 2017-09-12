@@ -1,24 +1,27 @@
 # LeetCode题解：Longest Substring
+
 ## 题目
+
 ### Without Repeating Characters
+
 Given a string, find the length of the longest substring without repeating characters.
 
-* Example
-Given`"abcabcbb"`, the answer is `"abc"`, which the length is 3.
-Given`"bbbbb"`, the answer is `"b"`, with the length of 1.
-Given `"pwwkew"`, the answer is `"wke"`, with the length of 3. Note that the answer must be a substring,`"pwke"` is a subsequence and not a substring.
+- Example Given`"abcabcbb"`, the answer is `"abc"`, which the length is 3\. Given`"bbbbb"`, the answer is `"b"`, with the length of 1\. Given `"pwwkew"`, the answer is `"wke"`, with the length of 3\. Note that the answer must be a substring,`"pwke"` is a subsequence and not a substring.
 
 ### With At Most K Distinct Characters
+
 Given a string, find the length of the longest substring T that contains at most k distinct characters.
 
-* Example
-Given`s = "eceba"`, `k = 2`, The answer is`"ece"`, which the length is 3.
+- Example Given`s = "eceba"`, `k = 2`, The answer is`"ece"`, which the length is 3.
 
 ## 题解
+
 使用队列的两道经典题目。python语言可以调用函数`deque`来构建操作便捷的队列，也可以使用列表指针来实现。
 
 ## 代码
+
 ### Without Repeating Characters
+
 ```python
 class Solution(object):
     def lengthOfLongestSubstring(self, s):
@@ -67,6 +70,7 @@ if __name__ == '__main__':
 ```
 
 ### With At Most K Distinct Characters
+
 ```python
 class Solution(object):
     def lengthOfLongestSubstringKDistinct(self, s, k):
@@ -102,4 +106,4 @@ if __name__ == '__main__':
     print(Solution().lengthOfLongestSubstringKDistinct('eceba', 2))
 ```
 
-#code/leetcode
+# code/leetcode

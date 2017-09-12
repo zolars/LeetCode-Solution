@@ -1,35 +1,44 @@
 # LeetCode题解：Longest Palindromic Substring
+
 ## 题目
+
 Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
 
+- Example
 
-* Example
-```
-Input: "babad"
-Output: "bab"
-Note: "aba" is also a valid answer.
-```
-```
-Input: "cbbd"
-Output: "bb"
-```
+  ```
+  Input: "babad"
+  Output: "bab"
+  Note: "aba" is also a valid answer.
+  ```
+
+  ```
+  Input: "cbbd"
+  Output: "bb"
+  ```
 
 ## 题解
+
 本题解法众多，是处理字符串相关问题的基础。
 
 ### Dynamic Programming
+
 动态规划算法，使用函数的递归来实现，AC。
 
 ### Expand Around Center
+
 由中心向外边拓展边判断，这个比动态规划要快，因为减少了函数调用。
 
 ### Manacher's Algorithm
+
 [详解](http://blog.csdn.net/zzran/article/details/8517653)
 
 ### 重要的优化
+
 设一个字典为全局变量，将所有检索到的符合条件的字符串及其长度放入该字典。之后对字典排序后输出即可，可以减小复杂度。
 
 ## 代码
+
 ```python
 class Solution(object):
     def longestPalindrome1(self, s):
@@ -99,4 +108,4 @@ if __name__ == "__main__":
     print(Solution().longestPalindrome1("cbbd"))
 ```
 
-#code/leetcode
+# code/leetcode
