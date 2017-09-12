@@ -6,7 +6,9 @@ Given an array and a value, remove all instances of that value in place and retu
 
 ## 题解
 
-双指针的运用。不要想当然的使用python自带的诸多列表操作函数了，因为空间复杂度的一些限制。 ~~LeetCode的答案明明写着要int型，却反馈出来一个列表是什么鬼啊？~~
+双指针的运用。不要想当然的使用python自带的诸多列表操作函数了，因为空间复杂度的一些限制。
+
+~~LeetCode的答案明明写着要int型，却反馈出来一个列表是什么鬼啊？~~
 
 ## 代码
 
