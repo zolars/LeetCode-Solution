@@ -105,5 +105,3 @@ class Solution(object):
 if __name__ == '__main__':
     print(Solution().lengthOfLongestSubstringKDistinct('eceba', 2))
 ```
-
-# code/leetcode

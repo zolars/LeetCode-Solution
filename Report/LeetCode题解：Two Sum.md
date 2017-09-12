@@ -76,5 +76,3 @@ class Solution(object):
 if __name__ == '__main__':
     print Solution().twoSum([1, 2, 3, 4], 6)
 ```
-
-# code/leetcode

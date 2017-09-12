@@ -86,5 +86,3 @@ class Solution(object):
 if __name__ == '__main__':
     print(Solution().isMatch("aab", "a*c*a*ab"))
 ```
-
-# code/leetcode

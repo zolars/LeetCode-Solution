@@ -103,5 +103,3 @@ class Solution(object):
 if __name__ == "__main__":
     print(Solution().longestPalindrome1("cbbd"))
 ```
-
-# code/leetcode

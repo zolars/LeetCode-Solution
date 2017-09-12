@@ -61,5 +61,3 @@ class Solution(object):
 if __name__ == '__main__':
     print(Solution().compareVersion('1.2', '1.2.0'))
 ```
-
-# code/leetcode

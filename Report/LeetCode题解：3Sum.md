@@ -58,5 +58,3 @@ class Solution(object):
 if __name__ == '__main__':
     print(Solution().threeSum([-1, -1, 0, 1]))
 ```
-
-# code/leetcode

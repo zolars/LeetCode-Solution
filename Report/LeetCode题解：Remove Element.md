@@ -37,5 +37,3 @@ class Solution(object):
 if __name__ == '__main__':
     print(Solution().removeElement([1, 4, 1, 3, 2], 1))
 ```
-
-# code/leetcode
