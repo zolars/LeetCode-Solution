@@ -42,8 +42,9 @@ int cart_choose_2() {
 void cart_result_2(char user_id[30]) {
   int i = 0, k = 0;
   printf("您的购物车信息如下:\n");
+  printf("序号   商品名   超市名     购买数量\n");
   while (shopping_cart[i].purchase_num != 0) {
-    printf("%d. %s %s %d\n", i + 1, shopping_cart[i].goods_name,
+    printf("%d.      %-8s %-15s %4d\n", i + 1, shopping_cart[i].goods_name,
            shopping_cart[i].shop_id, shopping_cart[i].purchase_num);
     i++;
   }
@@ -134,7 +135,7 @@ int cart_choose() {
   scanf("%s", choose);
   if (strcmp(choose, "1") != 0 && strcmp(choose, "2") != 0 &&
       strcmp(choose, "0") != 0) {
-    printf("\n您的输入有误, 请按照操作选项再次输入:\n\n");
+    printf("\n您的输入有误, 请按照���作选项再次输入:\n\n");
     choose_num = cart_choose();
   } else
     choose_num = atoi(choose);
@@ -223,9 +224,10 @@ int cart_main(char user_id[30]) {
   }
 
   printf("您的购物车信息如下:\n");
+  printf("商品名     超市名       购买数量\n");
   while (shopping_cart[i].purchase_num != 0) {
-    printf("%s %s %d\n", shopping_cart[i].goods_name, shopping_cart[i].shop_id,
-           shopping_cart[i].purchase_num);
+    printf("%-12s %-16s %4d\n", shopping_cart[i].goods_name,
+           shopping_cart[i].shop_id, shopping_cart[i].purchase_num);
     i++;
   }
 
