@@ -1,0 +1,33 @@
+Undefined symbols for architecture x86_64:
+  "database_name_to_id(char*, int)", referenced from:
+      search_order_admin_result_2() in search_order-684f77.o
+  "database_shop_index(char*, int)", referenced from:
+      search_order_admin_main(char*) in search_order-684f77.o
+  "database_order_consumer(char*, int)", referenced from:
+      search_order_consumer_main(char*) in search_order-684f77.o
+  "database_order_admin_all(char*, int)", referenced from:
+      search_order_admin_main(char*) in search_order-684f77.o
+  "database_admin_information(char*, int)", referenced from:
+      search_order_admin_main(char*) in search_order-684f77.o
+  "database_order_admin_goods(char*, int)", referenced from:
+      search_order_admin_main(char*) in search_order-684f77.o
+  "_admin_information", referenced from:
+      search_order_admin_main(char*) in search_order-684f77.o
+  "_main", referenced from:
+     implicit entry/start for main executable
+     (maybe you meant: __Z26search_order_consumer_mainPc, __Z23search_order_admin_mainPc )
+  "_name_to_id_goods_id", referenced from:
+      search_order_admin_result_2() in search_order-684f77.o
+  "_order_admin_all", referenced from:
+      search_order_admin_result_2() in search_order-684f77.o
+  "_order_admin_goods", referenced from:
+      search_order_admin_result_1_1() in search_order-684f77.o
+      search_order_admin_result_1_2() in search_order-684f77.o
+      search_order_admin_result_1_3() in search_order-684f77.o
+  "_order_consumer", referenced from:
+      search_order_consumer_main(char*) in search_order-684f77.o
+     (maybe you meant: __Z26search_order_consumer_mainPc)
+  "_shop_index", referenced from:
+      search_order_admin_result_1_4() in search_order-684f77.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
