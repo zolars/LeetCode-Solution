@@ -43,9 +43,6 @@ void change_admin_password(char user_id[11]) {
   scanf("%s", admin_information.password);
 
   printf("\n修改成功! ");
-  printf("\n请输入任意字符并按回车键以继续...\n");
-  char screen[10];
-  scanf("%s", screen); // 延长屏幕显示时间
 
   return;
 }
@@ -79,14 +76,17 @@ int change_admin_choose() {
   int choose_num;
 
   printf("您的个人信息如下:\n");
-  printf("超市名   管理员姓名          邮箱        密码\n");
+  printf("超市名     管理员姓名          邮箱             密码\n");
 
-  printf("%s       %s   %s   %s\n",
+  printf("%-16s %-16s %-20s %-10s\n",
          admin_information.shop_id, // 超市名
          admin_information.name,    // 管理员姓名
          admin_information.email,   // 邮箱
          admin_information.password // 密码
   );
+  printf("\n请输入任意字符并按回车键以继续...\n");
+  char screen[10];
+  scanf("%s", screen); // 延长屏幕显示时间
 
   // 用户界面
   printf("\n---------------请选择您需要的操作类型---------------\n\n");

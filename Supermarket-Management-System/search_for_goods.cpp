@@ -185,17 +185,24 @@ void search_goods_result_0(char user_id[30], int choise_num) {
 // 筛选打折的商品
 void search_goods_result_1(char user_id[30]) {
   int i = 0, j = 0; //循环变量
+  printf("序号   商品名   超市名          单价     折扣价     库存  "
+         " 销量  "
+         "      折扣开始时间      折扣结束时间\n");
+
   while (goods_index[i].unit_price != 0) {
     if (fabs(goods_index[i].unit_price - goods_index[i].discount_price) >
         0.000001) //打折后商品价格与原价格不等
     {
-      printf("%d %s %10.2f %d %d %10.2f %d:%d:%d:%d:%d %d:%d:%d:%d:%d\n",
-             j + 1,                             // 列表序号
-             goods_index[i].shop_id,            // 商品名
+      printf("%2d.    %-10s %-16s %-10.2f  %-10.2f %-4d    %-4d  "
+             "    %04d:%02d:%02d:%02d:%02d "
+             "%04d:%02d:%02d:%02d:%02d\n",
+             i + 1,                             // 列表序号
+             temp_information_item,             // 商品名
+             goods_index[i].shop_id,            // 超市名
              goods_index[i].unit_price,         // 零售价格
-             goods_index[i].sales_volume,       // 销量
+             goods_index[i].discount_price,     // 折扣价
              goods_index[i].goods_in_stock,     // 存货
-             goods_index[i].discount_price,     // 折扣���
+             goods_index[i].sales_volume,       // 销量
              goods_index[i].time_begin.tm_year, // 折扣开始时间
              goods_index[i].time_begin.tm_mon,  // ...
              goods_index[i].time_begin.tm_mday, // ...
@@ -222,15 +229,22 @@ void search_goods_result_1(char user_id[30]) {
 // 打印不打折的商品
 void search_goods_result_2(char user_id[30]) {
   int i = 0; //循环变量
+  printf("序号   商品名   超市名          单价     折扣价     库存  "
+         " 销量  "
+         "      折扣开始时间      折扣结束时间\n");
+
   while (goods_index[i].unit_price != 0) {
 
-    printf("%d. %s %10.2f %d %d %10.2f %d:%d:%d:%d:%d %d:%d:%d:%d:%d\n",
+    printf("%2d.    %-10s %-16s %-10.2f  %-10.2f %-4d    %-4d  "
+           "    %04d:%02d:%02d:%02d:%02d "
+           "%04d:%02d:%02d:%02d:%02d\n",
            i + 1,                             // 列表序号
-           goods_index[i].shop_id,            // 商品名
+           temp_information_item,             // 商品名
+           goods_index[i].shop_id,            // 超市名
            goods_index[i].unit_price,         // 零售价格
-           goods_index[i].sales_volume,       // 销量
-           goods_index[i].goods_in_stock,     // 存货
            goods_index[i].discount_price,     // 折扣价
+           goods_index[i].goods_in_stock,     // 存货
+           goods_index[i].sales_volume,       // 销量
            goods_index[i].time_begin.tm_year, // 折扣开始时间
            goods_index[i].time_begin.tm_mon,  // ...
            goods_index[i].time_begin.tm_mday, // ...
@@ -265,20 +279,27 @@ void search_goods_result_3(char user_id[30]) {
   qsort(goods_index, i, sizeof(goods_index[0]), cmp_sales_volume_goods);
 
   i = 0;
+  printf("序号   商品名   超市名          单价     折扣价     库存  "
+         " 销量  "
+         "      折扣开始时间      折扣结束时间\n");
+
   while (goods_index[i].unit_price != 0) {
-    printf("%d. %s %10.2f %d %d %10.2f %d:%d:%d:%d:%d %d:%d:%d:%d:%d\n",
+    printf("%2d.    %-10s %-16s %-10.2f  %-10.2f %-4d    %-4d  "
+           "    %04d:%02d:%02d:%02d:%02d "
+           "%04d:%02d:%02d:%02d:%02d\n",
            i + 1,                             // 列表序号
-           goods_index[i].shop_id,            // 商品名
+           temp_information_item,             // 商品名
+           goods_index[i].shop_id,            // 超市名
            goods_index[i].unit_price,         // 零售价格
-           goods_index[i].sales_volume,       // 销量
-           goods_index[i].goods_in_stock,     // 存货
            goods_index[i].discount_price,     // 折扣价
+           goods_index[i].goods_in_stock,     // 存货
+           goods_index[i].sales_volume,       // 销量
            goods_index[i].time_begin.tm_year, // 折扣开始时间
            goods_index[i].time_begin.tm_mon,  // ...
            goods_index[i].time_begin.tm_mday, // ...
            goods_index[i].time_begin.tm_hour, // ...
            goods_index[i].time_begin.tm_min,  // ...
-           goods_index[i].time_end.tm_year,   // 折扣结束��间
+           goods_index[i].time_end.tm_year,   // 折扣结束时间
            goods_index[i].time_end.tm_mon,    // ...
            goods_index[i].time_end.tm_mday,   // ...
            goods_index[i].time_end.tm_hour,   // ...
@@ -307,14 +328,21 @@ void search_goods_result_4(char user_id[30]) {
   qsort(goods_index, i, sizeof(goods_index[0]), cmp_discount_price_goods);
 
   i = 0;
+  printf("序号   商品名   超市名          单价     折扣价     库存  "
+         " 销量  "
+         "      折扣开始时间      折扣结束时间\n");
+
   while (goods_index[i].unit_price != 0) {
-    printf("%d. %s %10.2f %d %d %10.2f %d:%d:%d:%d:%d %d:%d:%d:%d:%d\n",
-           i + 1,                         // 列表序号
-           goods_index[i].shop_id,        // 商品编��
-           goods_index[i].unit_price,     // ���售�������
-           goods_index[i].sales_volume,   // 销量
-           goods_index[i].goods_in_stock, // 存货
-           goods_index[i].discount_price, // 折扣价
+    printf("%2d.    %-10s %-16s %-10.2f  %-10.2f %-4d    %-4d  "
+           "    %04d:%02d:%02d:%02d:%02d "
+           "%04d:%02d:%02d:%02d:%02d\n",
+           i + 1,                             // 列表序号
+           temp_information_item,             // 商品名
+           goods_index[i].shop_id,            // 超市名
+           goods_index[i].unit_price,         // 零售价格
+           goods_index[i].discount_price,     // 折扣价
+           goods_index[i].goods_in_stock,     // 存货
+           goods_index[i].sales_volume,       // 销量
            goods_index[i].time_begin.tm_year, // 折扣开始时间
            goods_index[i].time_begin.tm_mon,  // ...
            goods_index[i].time_begin.tm_mday, // ...
@@ -395,7 +423,7 @@ void search_goods(char user_id[30]) {
   return;
 }
 
-//根据超市名称进行查询
+//根据��品名称进行查询
 void search_goods_begin(char user_id[30]) {
 
   if (!database_shopping_cart(user_id, 0)) { // 数据库读取, 只读
@@ -422,15 +450,22 @@ void search_goods_begin(char user_id[30]) {
   strcpy(temp_information_item, search_id_goods);
 
   printf("您的查询结果如下:\n");
+  printf("序号   商品名   超市名          单价     折扣价     库存  "
+         " 销量  "
+         "      折扣开始时间      折扣结束时间\n");
 
   while (goods_index[i].unit_price != 0) {
-    printf("%d. %s %10.2f %d %d %10.2f %d:%d:%d:%d:%d %d:%d:%d:%d:%d\n",
+
+    printf("%2d.    %-10s %-16s %-10.2f  %-10.2f %-4d    %-4d  "
+           "    %04d:%02d:%02d:%02d:%02d "
+           "%04d:%02d:%02d:%02d:%02d\n",
            i + 1,                             // 列表序号
-           goods_index[i].shop_id,            // 超市编号
+           temp_information_item,             // 商品名
+           goods_index[i].shop_id,            // 超市名
            goods_index[i].unit_price,         // 零售价格
-           goods_index[i].sales_volume,       // 销量
-           goods_index[i].goods_in_stock,     // 存货
            goods_index[i].discount_price,     // 折扣价
+           goods_index[i].goods_in_stock,     // 存货
+           goods_index[i].sales_volume,       // 销量
            goods_index[i].time_begin.tm_year, // 折扣开始时间
            goods_index[i].time_begin.tm_mon,  // ...
            goods_index[i].time_begin.tm_mday, // ...

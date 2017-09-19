@@ -35,8 +35,8 @@ int cmp_sales_volume_market(const void *a, const void *b) {
 int cmp_discount_price_market(const void *a, const void *b) {
   return (*(STU_goods_index *)a).discount_price >
                  (*(STU_goods_index *)b).discount_price
-             ? -1
-             : 1;
+             ? 1
+             : -1;
 }
 
 int search_market_choose_0() {
@@ -152,10 +152,12 @@ void search_market_result_0(char user_id[30], int choise_num) {
   if (choose == 1) {
     choose = shopping(user_id, temp_information_foritem[num_purchase_num - 1],
                       temp_information_formarket, goods_purchase_num);
-    if (choose == 1)
+    if (choose == 1) {
       printf("您的商品购买完成, "
-             "谢谢惠顾!\n详细信息请前往\"主菜单-查看已完成订单\".\n");
-    else if (choose == 0)
+             "谢谢惠顾!\n详细信息请前往\"主菜单-查看已完成订单\".\n\n");
+      // 显示推荐条目
+      database_order_admin_consumer(temp_information_formarket, -1);
+    } else if (choose == 0)
       printf("抱歉, 您选择的商品存货不足, 请选择其他商品.");
     else if (choose == -1)
       printf("抱歉, 您的余额不足, 请先充值.");
@@ -172,7 +174,10 @@ void search_market_result_0(char user_id[30], int choise_num) {
            temp_information_foritem[num_purchase_num - 1]);       // 商品名
     strcpy(shopping_cart[i].shop_id, temp_information_formarket); // 商店ID
     shopping_cart[i].purchase_num = goods_purchase_num; // 购买数量
-
+    printf("您的商品已加入购物车: )");
+    printf("\n请输入任意字符并按回车键以继续...\n");
+    char screen[10];
+    scanf("%s", screen); // 延长屏幕显示时间
     return;
   }
   return;
@@ -181,17 +186,24 @@ void search_market_result_0(char user_id[30], int choise_num) {
 // 筛选打折的商品
 void search_market_result_1(char user_id[30]) {
   int i = 0, j = 0; //循环变量
+  printf("序号   商品名   超市名          单价     折扣价     库存  "
+         " 销量  "
+         "      折扣开始时间      折扣结束时间\n");
   while (shop_index[i].unit_price != 0) {
     if (fabs(shop_index[i].unit_price - shop_index[i].discount_price) >
         0.000001) //打折后商品价格与原价格不等
     {
-      printf("%d %s %0.2f %d %d %0.2f %d:%d:%d:%d:%d %d:%d:%d:%d:%d\n",
-             j + 1,                            // 列表序号
+
+      printf("%2d.    %-10s %-16s %-10.2f  %-10.2f %-4d    %-4d  "
+             "    %04d:%02d:%02d:%02d:%02d "
+             "%04d:%02d:%02d:%02d:%02d\n",
+             i + 1,                            // 列表序号
              shop_index[i].goods_name,         // 商品名
+             temp_information_formarket,       // 超市名
              shop_index[i].unit_price,         // 零售价格
-             shop_index[i].sales_volume,       // 销量
-             shop_index[i].goods_in_stock,     // 存货
              shop_index[i].discount_price,     // 折扣价
+             shop_index[i].goods_in_stock,     // 存货
+             shop_index[i].sales_volume,       // 销量
              shop_index[i].time_begin.tm_year, // 折扣开始时间
              shop_index[i].time_begin.tm_mon,  // ...
              shop_index[i].time_begin.tm_mday, // ...
@@ -218,15 +230,21 @@ void search_market_result_1(char user_id[30]) {
 // 打印不打折的商品
 void search_market_result_2(char user_id[30]) {
   int i = 0; //循环变量
+  printf("序号   商品名   超市名          单价     折扣价     库存  "
+         " 销量  "
+         "      折扣开始时间      折扣结束时间\n");
   while (shop_index[i].unit_price != 0) {
 
-    printf("%d. %s %0.2f %d %d %0.2f %d:%d:%d:%d:%d %d:%d:%d:%d:%d\n",
+    printf("%2d.    %-10s %-16s %-10.2f  %-10.2f %-4d    %-4d  "
+           "    %04d:%02d:%02d:%02d:%02d "
+           "%04d:%02d:%02d:%02d:%02d\n",
            i + 1,                            // 列表序号
            shop_index[i].goods_name,         // 商品名
+           temp_information_formarket,       // 超市名
            shop_index[i].unit_price,         // 零售价格
-           shop_index[i].sales_volume,       // 销量
-           shop_index[i].goods_in_stock,     // 存货
            shop_index[i].discount_price,     // 折扣价
+           shop_index[i].goods_in_stock,     // 存货
+           shop_index[i].sales_volume,       // 销量
            shop_index[i].time_begin.tm_year, // 折扣开始时间
            shop_index[i].time_begin.tm_mon,  // ...
            shop_index[i].time_begin.tm_mday, // ...
@@ -261,14 +279,20 @@ void search_market_result_3(char user_id[30]) {
   qsort(shop_index, i, sizeof(shop_index[0]), cmp_sales_volume_market);
 
   i = 0;
+  printf("序号   商品名   超市名          单价     折扣价     库存  "
+         " 销量  "
+         "      折扣开始时间      折扣结束时间\n");
   while (shop_index[i].unit_price != 0) {
-    printf("%d. %s %0.2f %d %d %0.2f %d:%d:%d:%d:%d %d:%d:%d:%d:%d\n",
+    printf("%2d.    %-10s %-16s %-10.2f  %-10.2f %-4d    %-4d  "
+           "    %04d:%02d:%02d:%02d:%02d "
+           "%04d:%02d:%02d:%02d:%02d\n",
            i + 1,                            // 列表序号
            shop_index[i].goods_name,         // 商品名
+           temp_information_formarket,       // 超市名
            shop_index[i].unit_price,         // 零售价格
-           shop_index[i].sales_volume,       // 销量
-           shop_index[i].goods_in_stock,     // 存货
            shop_index[i].discount_price,     // 折扣价
+           shop_index[i].goods_in_stock,     // 存货
+           shop_index[i].sales_volume,       // 销量
            shop_index[i].time_begin.tm_year, // 折扣开始时间
            shop_index[i].time_begin.tm_mon,  // ...
            shop_index[i].time_begin.tm_mday, // ...
@@ -303,15 +327,22 @@ void search_market_result_4(char user_id[30]) {
   qsort(shop_index, i, sizeof(shop_index[0]), cmp_discount_price_market);
 
   i = 0;
+  printf("序号   商品名   超市名          单价     折扣价     库存  "
+         " 销量  "
+         "      折扣开始时间      折扣结束时间\n");
   while (shop_index[i].unit_price != 0) {
-    printf("%d. %s %0.2f %d %d %0.2f %d:%d:%d:%d:%d %d:%d:%d:%d:%d\n",
+
+    printf("%2d.    %-10s %-16s %-10.2f  %-10.2f %-4d    %-4d  "
+           "    %04d:%02d:%02d:%02d:%02d "
+           "%04d:%02d:%02d:%02d:%02d\n",
            i + 1,                            // 列表序号
            shop_index[i].goods_name,         // 商品名
+           temp_information_formarket,       // 超市名
            shop_index[i].unit_price,         // 零售价格
-           shop_index[i].sales_volume,       // 销量
-           shop_index[i].goods_in_stock,     // 存货
            shop_index[i].discount_price,     // 折扣价
-           shop_index[i].time_begin.tm_year, // 折扣开始���间
+           shop_index[i].goods_in_stock,     // 存货
+           shop_index[i].sales_volume,       // 销量
+           shop_index[i].time_begin.tm_year, // 折扣开始时间
            shop_index[i].time_begin.tm_mon,  // ...
            shop_index[i].time_begin.tm_mday, // ...
            shop_index[i].time_begin.tm_hour, // ...
@@ -415,19 +446,23 @@ void search_market_begin(char user_id[30]) {
   }
   strcpy(temp_information_formarket, search_id_market);
 
-  // 显示推荐条目
-  database_order_admin_consumer(search_id_market, 0);
-
   printf("您的查询结果如下:\n");
+  printf("序号   商品名   超市名          单价     折扣价     库存  "
+         " 销量  "
+         "      折扣开始时间      折扣结束时间\n");
 
   while (shop_index[i].unit_price != 0) {
-    printf("%d. %s %0.2f %d %d %0.2f %d:%d:%d:%d:%d %d:%d:%d:%d:%d\n",
+
+    printf("%2d.    %-10s %-16s %-10.2f  %-10.2f %-4d    %-4d  "
+           "    %04d:%02d:%02d:%02d:%02d "
+           "%04d:%02d:%02d:%02d:%02d\n",
            i + 1,                            // 列表序号
-           shop_index[i].goods_name,         // 商品变号
+           shop_index[i].goods_name,         // 商品名
+           temp_information_formarket,       // 超市名
            shop_index[i].unit_price,         // 零售价格
-           shop_index[i].sales_volume,       // 销量
-           shop_index[i].goods_in_stock,     // 存货
            shop_index[i].discount_price,     // 折扣价
+           shop_index[i].goods_in_stock,     // 存货
+           shop_index[i].sales_volume,       // 销量
            shop_index[i].time_begin.tm_year, // 折扣开始时间
            shop_index[i].time_begin.tm_mon,  // ...
            shop_index[i].time_begin.tm_mday, // ...

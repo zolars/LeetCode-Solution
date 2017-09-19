@@ -528,15 +528,19 @@ void add_goods(char user_id[30]) {
 
   // 打印
   printf("您要发布的商品信息如下, 请确认:\n");
-  printf("%s %s %0.2f %0.2f %d %d %0.2f %04d:%02d:%02d:%02d:%02d "
-         "%04d:%02d:%02d:%02d:%02d",
+  printf(
+      "超市名       商品名          单价     折扣价   进价      库存   销量  "
+      "      折扣开始时间      折扣结束时间\n");
+  printf("%6s     %10s %10.2f %10.2f %10.2f    %4d %4d      "
+         "%04d:%02d:%02d:%02d:%02d       "
+         "%04d:%02d:%02d:%02d:%02d\n",
          temp_shop_id,        //
          temp_goods_name,     //
          temp_unit_price,     //
-         temp_in_price,       //
-         temp_sales_volume,   //
-         temp_goods_in_stock, //
          temp_discount_price, //
+         temp_in_price,       //
+         temp_goods_in_stock, //
+         temp_sales_volume,   //
          temp_time_begin[1],  //
          temp_time_begin[2],  //
          temp_time_begin[3],  //

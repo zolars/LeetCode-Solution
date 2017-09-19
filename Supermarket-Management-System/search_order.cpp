@@ -91,9 +91,9 @@ void search_order_admin_result_1_2() {
         cmp_purchase_num);
 
   printf("\n对销量排序结果如下:\n");
-  printf("商品名  销量  营业额  利润\n");
+  printf("  商品名  销量  营业额     利润\n");
   for (i = 0; i < deep_num; i++)
-    printf("%s\t%4d\t%0.2f\t%0.2f\n",
+    printf("%10s %4d %8.2f %8.2f\n",
            order_admin_goods[i].goods_name,   // 商品名
            order_admin_goods[i].purchase_num, // 销量
            order_admin_goods[i].all_price,    // 营业额
@@ -104,9 +104,9 @@ void search_order_admin_result_1_2() {
         cmp_all_price);
 
   printf("\n对营业额排序结果如下:\n");
-  printf("商品名  销量  营业额  利润\n");
+  printf("  商品名  销量  营业额     利润\n");
   for (i = 0; i < deep_num; i++)
-    printf("%s\t%4d\t%0.2f\t%0.2f\n",
+    printf("%10s %4d %8.2f %8.2f\n",
            order_admin_goods[i].goods_name,   // 商品名
            order_admin_goods[i].purchase_num, // 销量
            order_admin_goods[i].all_price,    // 营业额
@@ -129,16 +129,17 @@ void search_order_admin_result_1_3() {
   qsort(order_admin_goods, deep_num, sizeof(order_admin_goods[0]), cmp_profit);
 
   printf("\n对利润排序结果如下:\n");
-  printf("商品名  销量  营业额  利润\n");
+  printf("  商品名  销量  营业额     利润\n");
   for (i = 0; i < deep_num; i++)
-    printf("%s\t%4d\t%0.2f\t%0.2f\n", order_admin_goods[i].goods_name,
+    printf("%10s %4d %8.2f %8.2f\n",
+           order_admin_goods[i].goods_name, //
            order_admin_goods[i].purchase_num, order_admin_goods[i].all_price,
            order_admin_goods[i].profit);
-  printf("\n利润最高的商品为:%s\n利润最低的���品为:%s\n\n",
+  printf("\n利润最高的商品为:%s\n利润最低的商品为:%s\n",
          order_admin_goods[0].goods_name,
          order_admin_goods[deep_num - 1].goods_name);
 
-  printf("\n请输入任意字符并按回车键以继续...\n");
+  printf("请输入任意字符并按回车键以继续...\n");
   char screen[10];
   scanf("%s", screen); // 延长屏幕显示时间
   return;
@@ -250,12 +251,15 @@ void search_order_admin_result_2() {
 
   int i = 0; // 循环变量
   printf("\n您店内的所有订单如下:\n");
-  printf("        订单编号         顾客编号       购买时间  商品ID   商品名  "
-         "购买数量    "
-         "单价    总价\n");
+  printf(
+      "      订单编号       顾客名      购买时间       商品ID      商品名     "
+      "购买数量    "
+      "单价    总价\n");
   while (order_admin_all[i].purchase_num != 0) {
     database_name_to_id(order_admin_all[i].goods_name, 0);
-    printf("%s   %s    %d:%d:%d:%d:%d  %s %s      %d       %0.2f  %0.2f\n",
+    printf("%s     %s      %04d:%02d:%02d:%02d:%02d  %s       %s      %d       "
+           "%0.2f  "
+           "%0.2f\n",
            order_admin_all[i].order_id,          // 订单编号
            order_admin_all[i].consumer_id,       // 顾客ID
            order_admin_all[i].sold_time.tm_year, // 购买时间
@@ -378,12 +382,23 @@ int search_order_consumer_main(char user_id[15]) {
 
   // 顾客: 打印数据
   printf("\n");
+  printf(
+      "      订单编号           购买时间       商品ID  商品名       购买数量  "
+      "   单价    "
+      "总价\n");
+
   while (order_consumer[i].unit_price != 0) {
     database_name_to_id(order_consumer[i].goods_name, 0);
-    printf("%s %s %s %s %d %0.2f %0.2f\n", order_consumer[i].order_id,
-           order_consumer[i].sold_time, name_to_id_goods_id,
-           order_consumer[i].goods_name, order_consumer[i].purchase_num,
-           order_consumer[i].unit_price, order_consumer[i].all_price);
+
+    printf("%s   %s    %s  %-10s       %d       %0.2f  %0.2f\n",
+           order_consumer[i].order_id,     //
+           order_consumer[i].sold_time,    //
+           name_to_id_goods_id,            //
+           order_consumer[i].goods_name,   //
+           order_consumer[i].purchase_num, //
+           order_consumer[i].unit_price,   //
+           order_consumer[i].all_price     //
+    );
     i++;
   }
 

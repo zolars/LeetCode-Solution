@@ -28,22 +28,23 @@ int print_shop_index_main(char user_id[30]) {
     printf("您的库存中还没有商品, 请先添加部分商品.\n");
     return 0; // 读取文件发生错误, 返回上一级
   }
-  printf("商品ID    商品名   单价   进价  销量  库存   折扣价格        "
-         "折扣开始时间        折扣结束时间\n");
+  printf(
+      "商品ID         商品名        单价     折扣价    进价      库存   销量  "
+      "      折扣开始时间        折扣结束时间\n");
 
   while (shop_index[i].unit_price != 0) {
     database_name_to_id(shop_index[i].goods_name, 0);
 
-    printf("%s   %s  %0.2f  %0.2f    %d   %d     %0.2f        "
-           "%04d:%02d:%02d:%02d:%02d   "
+    printf("%6s       %10s %10.2f %10.2f %10.2f    %4d %4d      "
+           "%04d:%02d:%02d:%02d:%02d       "
            "%04d:%02d:%02d:%02d:%02d\n",
            name_to_id_goods_id,              // 商品ID
            shop_index[i].goods_name,         // 商品名
            shop_index[i].unit_price,         // 零售价格
-           shop_index[i].in_price,           // 进货价格
-           shop_index[i].sales_volume,       // 销量
-           shop_index[i].goods_in_stock,     // 存货
            shop_index[i].discount_price,     // 折扣价
+           shop_index[i].in_price,           // 进货价格
+           shop_index[i].goods_in_stock,     // 存货
+           shop_index[i].sales_volume,       // 销量
            shop_index[i].time_begin.tm_year, // 折扣开始时间
            shop_index[i].time_begin.tm_mon,  // ...
            shop_index[i].time_begin.tm_mday, // ...

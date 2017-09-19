@@ -292,7 +292,7 @@ int database_order_admin_consumer(char shop_id[30], int read_type) {
   strcat(file_name, "_consumer.txt");
 
   int i = 0;
-  if (!read_type) {
+  if (read_type <= 0) {
 
     // 打开特定的订单数据文件
     if ((fwrite = fopen(file_name, "r")) == NULL) // 判断文件是否存在及可读
@@ -306,9 +306,11 @@ int database_order_admin_consumer(char shop_id[30], int read_type) {
            order_admin_consumer[i].goods_name,   //商品名
            &order_admin_consumer[i].purchase_num // 购买数量
     );
-    if (order_admin_consumer[i].purchase_num != 0) {
-      printf("以下为该超市最受欢迎的商品名, 欢迎选购:\n");
-      printf("%s\n", order_admin_consumer[i].goods_name);
+    if (read_type == -1) {
+      if (order_admin_consumer[i].purchase_num != 0) {
+        printf("以下为该超市最受欢迎的商品名, 欢迎选购:\n");
+        printf("%s\n", order_admin_consumer[i].goods_name);
+      }
     }
   } else {
 
@@ -471,7 +473,7 @@ int database_shop_index(char user_id[30], int read_type) {
       fscanf(fwrite, "%s %f %f %d %d %f %d:%d:%d:%d:%d %d:%d:%d:%d:%d",
              shop_index[i].goods_name,  // ����品编号
              &shop_index[i].unit_price, // 零售价格
-             &shop_index[i].in_price, // 进货价�������������
+             &shop_index[i].in_price, // 进货价��������������
              &shop_index[i].sales_volume,       // 销量
              &shop_index[i].goods_in_stock,     // 存货
              &shop_index[i].discount_price,     // 折扣价
@@ -606,11 +608,16 @@ void database_all_index(int read_type, char goods_name[30], char shop_id[30]) {
     while (!feof(fwrite)) {
       if (i >= 20)
         break;
+
       fscanf(fwrite, "%s %s",
              goods_name, // 商品名
              shop_id     // 管理员ID
       );
+      if (strcmp(goods_name, "") == 0)
+        break;
       printf("%s : %s\n", goods_name, shop_id);
+      strcpy(goods_name, "");
+      strcpy(shop_id, "");
       i++;
     }
     fclose(fwrite);
