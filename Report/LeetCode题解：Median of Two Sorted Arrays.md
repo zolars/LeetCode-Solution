@@ -1,4 +1,4 @@
-# LeetCode题解：Median of Two Sorted Arrays
+# LeetCode题解: Median of Two Sorted Arrays
 
 ## 题目
 
@@ -10,7 +10,7 @@ There are two sorted arrays nums1 and nums2 of size m and n respectively. Find t
 
 ## 题解
 
-屡次调试之后才AC的一道很简单的队列题目。没有什么思考的难度，但是数组的边界要考虑清楚----这一点还很是有待加强。
+屡次调试之后才AC的一道很简单的队列题目. 没有什么思考的难度, 但是数组的边界要考虑清楚----这一点还很是有待加强.
 
 ## 代码
 

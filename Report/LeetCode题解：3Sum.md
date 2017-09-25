@@ -1,4 +1,4 @@
-# LeetCode题解：3Sum
+# LeetCode题解: 3Sum
 
 ## 题目
 
@@ -10,11 +10,11 @@ Given an array S of n integers, are there elements a, b, c in S such that a + b 
 
 ## 题解
 
-使用双指针法遍历。所以我的双指针玩的还是太差了，之前的有一道双指针的题目 Container With Most Water 我就没做出。
+使用双指针法遍历. 所以我的双指针玩的还是太差了, 之前的有一道双指针的题目 Container With Most Water 我就没做出.
 
-所谓双指针，一般是：一个在头，一个在尾，双向逼近。此题亦如此。
+所谓双指针, 一般是: 一个在头, 一个在尾, 双向逼近. 此题亦如此.
 
-一个之前没发现过的优化：能写在 while 语句里的判断不要写 if ，有可能因此而超时，而这种超时是不可能检查出来的。
+一个之前没发现过的优化: 能写在 while 语句里的判断不要写 if , 有可能因此而超时, 而这种超时是不可能检查出来的. 
 
 ## 代码
 

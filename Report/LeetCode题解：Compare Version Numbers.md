@@ -1,4 +1,4 @@
-# LeetCode题解：Compare Version Numbers
+# LeetCode题解: Compare Version Numbers
 
 ## 题目
 
@@ -12,7 +12,7 @@ You may assume that the version strings are non-empty and contain only digits an
 
 ## 题解
 
-字符串切片的运用，简单题。
+字符串切片的运用, 简单题. 
 
 ## 代码
 

@@ -7,13 +7,13 @@ class Solution(object):
         if n == 1:
             return 1
 
-        res = [0 for i in xrange(n)]
-        res[0], res[1] = 1, 2
+        dp = [0 for i in xrange(n)]
+        dp[0], dp[1] = 1, 2
 
         for i in xrange(2, n):
-            res[i] = res[i - 1] + res[i - 2]
+            dp[i] = dp[i - 1] + dp[i - 2]
 
-        return res[-1]
+        return dp[-1]
 
 
 if __name__ == '__main__':

@@ -1,4 +1,4 @@
-# LeetCode题解：Longest Substring
+# LeetCode题解: Longest Substring
 
 ## 题目
 
@@ -18,7 +18,7 @@ Given a string, find the length of the longest substring T that contains at most
 
 ## 题解
 
-使用队列的两道经典题目。python语言可以调用函数`deque`来构建操作便捷的队列，也可以使用列表指针来实现。
+使用队列的两道经典题目. python语言可以调用函数`deque`来构建操作便捷的队列, 也可以使用列表指针来实现.
 
 ## 代码
 
