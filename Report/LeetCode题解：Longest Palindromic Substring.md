@@ -6,12 +6,12 @@ Given a string s, find the longest palindromic substring in s. You may assume th
 
 -   Example
 
-        Input: "babad"
-        Output: "bab"
-        Note: "aba" is also a valid answer.
+    Input: "babad"
+    Output: "bab"
+    Note: "aba" is also a valid answer.
 
-        Input: "cbbd"
-        Output: "bb"
+    Input: "cbbd"
+    Output: "bb"
 
 ## 题解
 

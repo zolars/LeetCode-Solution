@@ -10,7 +10,9 @@ The matching should cover the entire input string (not partial).
 
 The function prototype should be: bool isMatch(const char \*s, const char \*p)
 
--   Example isMatch("aa","a") → false isMatch("aa","aa") → true isMatch("aaa","aa") → false isMatch("aa", "a\*") → true isMatch("aa", ".\*") → true isMatch("ab", ".\*") → true isMatch("ab", "c\*ab") → true
+-   Example
+
+    isMatch("aa","a") → false isMatch("aa","aa") → true isMatch("aaa","aa") → false isMatch("aa", "a\*") → true isMatch("aa", ".\*") → true isMatch("ab", ".\*") → true isMatch("ab", "c\*ab") → true
 
 ## 题解
 
