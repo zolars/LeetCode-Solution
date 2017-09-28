@@ -44,7 +44,7 @@ class Solution(object):
 if __name__ == '__main__':
     list1 = ListNode(1)
     list1.next = ListNode(3)
-    list1.next.next = ListNode(6)
+    list1.next.next = ListNode(9)
     list2 = ListNode(2)
     list2.next = ListNode(4)
     list3 = ListNode(2)
