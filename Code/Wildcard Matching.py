@@ -24,4 +24,4 @@ class Solution:
 
 
 if __name__ == '__main__':
-    print Solution().isMatch("bbddaaa", "*a*a*")
+    print Solution().isMatch("abcdefg", "*b*d*g")
