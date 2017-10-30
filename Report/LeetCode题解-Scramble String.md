@@ -20,7 +20,6 @@ To scramble the string, we may choose any non-leaf node and swap its two childre
 For example, if we choose the node "gr" and swap its two children, it produces a scrambled string "rgeat".
 
         rgeat
-
        /    \
       rg    eat
      / \    /  \
