@@ -1,40 +1,33 @@
 # Best Time to Buy and Sell Stock IV
 
 
-class Solution:
+class Solution(object):
     def maxProfit(self, k, prices):
-        if k >= len(prices) / 2:
-            return self.maxAtMostNPairsProfit(prices)
+        """
+        :type k: int
+        :type prices: List[int]
+        :rtype: int
+        """
+        if k > len(prices):
+            buy, ans = 2 ** 32, 0
+            for i in prices:
+                if i < buy:
+                    buy = i
+                else:
+                    ans += i - buy
+                    buy = i
+            return ans
 
-        return self.maxAtMostKPairsProfit(prices, k)
-
-    def maxAtMostNPairsProfit(self, prices):
-        profit = 0
-        for i in xrange(len(prices) - 1):
-            profit += max(0, prices[i + 1] - prices[i])
-        return profit
-
-    def maxAtMostKPairsProfit(self, prices, k):
-        max_buy = [float("-inf") for _ in xrange(k + 1)]
-        max_sell = [0 for _ in xrange(k + 1)]
-
-        print max_buy
-        print max_sell
+        buy = [-2 ** 32 for _ in xrange(k + 1)]
+        sell = [0 for _ in xrange(k + 1)]
 
         for i in xrange(len(prices)):
-            for j in xrange(1, min(k, i / 2 + 1) + 1):
-                print "===", i, j, "==="
+            for j in xrange(1, i + 2 if i < k else k + 1):
+                buy[j] = max(buy[j], sell[j - 1] - prices[i])
+                sell[j] = max(sell[j],  buy[j] + prices[i])
 
-                max_buy[j] = max(max_buy[j], max_sell[j - 1] - prices[i])
-                max_sell[j] = max(max_sell[j], max_buy[j] + prices[i])
-                print
-                print max_buy
-                print max_sell
-                print
-
-        return max_sell[-1]
+        return sell[-1]
 
 
-if __name__ == "__main__":
-    print Solution().maxAtMostKPairsProfit([3, 7, 2, 8, 6, 4, 9], 2)
-    # 3, 7, 2, 8, 6, 3, 9, 4, 11
+if __name__ == '__main__':
+    print Solution().maxProfit(100, [3, 7, 2, 5, 6, 8])
