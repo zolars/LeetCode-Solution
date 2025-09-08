@@ -13,7 +13,7 @@ class Solution:
             return len(nums)
         if sums < x:
             return -1
-        result = 0
+        ans = 0
         current = 0
         left = 0
         for right, num in enumerate(nums):
@@ -22,8 +22,8 @@ class Solution:
                 current -= nums[left]
                 left += 1
             if current == sums - x:
-                result = max(result, right - left + 1)
-        return len(nums) - result if result > 0 else -1
+                ans = max(ans, right - left + 1)
+        return len(nums) - ans if ans > 0 else -1
 
 
 # @lc code=end

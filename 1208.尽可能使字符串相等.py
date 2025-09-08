@@ -7,7 +7,7 @@
 # @lc code=start
 class Solution:
     def equalSubstring(self, s: str, t: str, maxCost: int) -> int:
-        result = 0
+        ans = 0
         cost = 0
         left = 0
         for right, c in enumerate(s):
@@ -15,9 +15,9 @@ class Solution:
             while cost > maxCost:
                 cost -= abs(ord(s[left]) - ord(t[left]))
                 left += 1
-            result = max(result, right - left + 1)
+            ans = max(ans, right - left + 1)
 
-        return result
+        return ans
 
 
 # @lc code=end

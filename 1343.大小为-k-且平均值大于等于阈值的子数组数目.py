@@ -9,19 +9,19 @@ class Solution:
     def numOfSubarrays(self, arr: list[int], k: int, threshold: int) -> int:
         threshold = threshold * k
         current = 0
-        result = 0
+        ans = 0
 
         for num in arr[:k]:
             current += num
-        result = result + 1 if current >= threshold else result
+        ans = ans + 1 if current >= threshold else ans
 
         left = 0
         for num in arr[k:]:
             current = current + num - arr[left]
-            result = result + 1 if current >= threshold else result
+            ans = ans + 1 if current >= threshold else ans
             left += 1
 
-        return result
+        return ans
 
 
 # @lc code=end

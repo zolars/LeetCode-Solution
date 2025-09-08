@@ -7,7 +7,7 @@
 # @lc code=start
 class Solution:
     def totalFruit(self, fruits: list[int]) -> int:
-        result = 0
+        ans = 0
         left = 0
         stock = {}
         for right, fruit in enumerate(fruits):
@@ -20,8 +20,8 @@ class Solution:
                 if stock[fruits[left]] == 0:
                     stock.pop(fruits[left])
                 left += 1
-            result = max(result, right - left + 1)
-        return result
+            ans = max(ans, right - left + 1)
+        return ans
 
 
 # @lc code=end

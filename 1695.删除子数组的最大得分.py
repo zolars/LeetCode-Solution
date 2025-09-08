@@ -7,7 +7,7 @@
 # @lc code=start
 class Solution:
     def maximumUniqueSubarray(self, nums: list[int]) -> int:
-        result = 0
+        ans = 0
         current = 0
         left = 0
         stock = set()
@@ -18,8 +18,8 @@ class Solution:
                 left += 1
             stock.add(num)
             current += num
-            result = max(result, current)
-        return result
+            ans = max(ans, current)
+        return ans
 
 
 # @lc code=end

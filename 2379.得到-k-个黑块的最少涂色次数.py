@@ -11,18 +11,18 @@ class Solution:
         for block in blocks[:k]:
             if block == "W":
                 current += 1
-        result = current
+        ans = current
         left = 0
         for block in blocks[k:]:
             if block == "W":
                 current += 1
             if blocks[left] == "W":
                 current -= 1
-            result = max(current, result)
-            if result == 0:
-                return result
+            ans = max(current, ans)
+            if ans == 0:
+                return ans
             left += 1
-        return result
+        return ans
 
 
 # @lc code=end

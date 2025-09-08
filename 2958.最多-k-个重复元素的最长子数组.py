@@ -7,7 +7,7 @@
 # @lc code=start
 class Solution:
     def maxSubarrayLength(self, nums: list[int], k: int) -> int:
-        result = 0
+        ans = 0
         left = 0
         stock = {}
         for right, num in enumerate(nums):
@@ -18,8 +18,8 @@ class Solution:
             while stock[num] > k:
                 stock[nums[left]] -= 1
                 left += 1
-            result = max(result, right - left + 1)
-        return result
+            ans = max(ans, right - left + 1)
+        return ans
 
 
 # @lc code=end

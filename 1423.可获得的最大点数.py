@@ -11,15 +11,15 @@ class Solution:
     #     current = 0
     #     for left in range(k):
     #         current += cardPoints[left]
-    #     result = current
+    #     ans = current
     #     for right in range(k):
     #         current = (
     #             current
     #             + cardPoints[len(cardPoints) - right - 1]
     #             - cardPoints[k - right - 1]
     #         )
-    #         result = max(current, result)
-    #     return result
+    #         ans = max(current, ans)
+    #     return ans
 
     # 从中间找最小
     def maxScore(self, cardPoints: list[int], k: int) -> int:
@@ -27,11 +27,11 @@ class Solution:
         current = 0
         for card in cardPoints[:real_k]:
             current += card
-        result = current
+        ans = current
         for left, card in enumerate(cardPoints[real_k:]):
             current = current + card - cardPoints[left]
-            result = min(current, result)
-        return sum(cardPoints) - result
+            ans = min(current, ans)
+        return sum(cardPoints) - ans
 
 
 # @lc code=end

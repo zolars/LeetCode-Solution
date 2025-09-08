@@ -7,7 +7,7 @@
 # @lc code=start
 class Solution:
     def longestOnes(self, nums: list[int], k: int) -> int:
-        result = 0
+        ans = 0
         len_change = 0
         left = 0
         for right, num in enumerate(nums):
@@ -16,8 +16,8 @@ class Solution:
                 while len_change > k:
                     len_change -= 1 if nums[left] == 0 else 0
                     left += 1
-            result = max(result, right - left + 1)
-        return result
+            ans = max(ans, right - left + 1)
+        return ans
 
 
 # @lc code=end

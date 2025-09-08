@@ -7,12 +7,14 @@
 from typing import Optional
 
 
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
 # @lc code=start
 # Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
 
 
 class Solution:
@@ -74,9 +76,9 @@ class Solution:
 if __name__ == "__main__":
     solution = Solution()
 
-    result = solution.addTwoNumbers(
+    ans = solution.addTwoNumbers(
         ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9))))),
         ListNode(9, ListNode(9, ListNode(9))),
     )
 
-    print(result)
+    print(ans)

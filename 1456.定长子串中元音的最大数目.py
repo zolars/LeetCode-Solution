@@ -10,7 +10,7 @@ class Solution:
     # def maxVowels(self, s: str, k: int) -> int:
     #     rhythms = {"a", "e", "i", "o", "u"}
     #     substr = []
-    #     result = 0
+    #     ans = 0
     #     current = 0
     #     for c in s:
     #         if c in rhythms:
@@ -19,28 +19,28 @@ class Solution:
     #         if len(substr) > k:
     #             if substr.pop(0) in rhythms:
     #                 current -= 1
-    #         result = current if current > result else result
-    #         if result == k:
-    #             return result
-    #     return result
+    #         ans = current if current > ans else ans
+    #         if ans == k:
+    #             return ans
+    #     return ans
 
     # 不存子字符串，用右指针控制
     def maxVowels(self, s: str, k: int) -> int:
         rhythms = {"a", "e", "i", "o", "u"}
         current = 0
-        result = 0
+        ans = 0
         right = 0
         for c in s:
             if c in rhythms:
                 current += 1
             if right - k >= 0 and s[right - k] in rhythms:
                 current -= 1
-            result = current if current > result else result
-            if result == k:
-                return result
+            ans = current if current > ans else ans
+            if ans == k:
+                return ans
             right += 1
 
-        return result
+        return ans
 
 
 # @lc code=end

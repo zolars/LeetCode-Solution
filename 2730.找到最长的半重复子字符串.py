@@ -9,7 +9,7 @@ class Solution:
     def longestSemiRepetitiveSubstring(self, s: str) -> int:
         if len(s) == 1:
             return 1
-        result = 0
+        ans = 0
         left = 0
         already_flag = -1
         for right, c in enumerate(s):
@@ -21,8 +21,8 @@ class Solution:
                 else:
                     left = already_flag
                     already_flag = right
-            result = max(result, right - left + 1)
-        return result
+            ans = max(ans, right - left + 1)
+        return ans
 
 
 # @lc code=end

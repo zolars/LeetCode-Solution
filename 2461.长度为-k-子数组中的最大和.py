@@ -8,7 +8,7 @@
 class Solution:
     # 普通的滑动窗口，easy
     def maximumSubarraySum(self, nums: list[int], k: int) -> int:
-        result = 0
+        ans = 0
         current = 0
         stock = {}
         for num in nums[:k]:
@@ -17,7 +17,7 @@ class Solution:
             else:
                 stock[num] = 1
             current += num
-        result = current if len(stock) == k else result
+        ans = current if len(stock) == k else ans
         for left, num in enumerate(nums[k:]):
             current = current + num - nums[left]
             if nums[left] != num:
@@ -28,8 +28,8 @@ class Solution:
                 stock[nums[left]] -= 1
                 if stock[nums[left]] == 0:
                     stock.pop(nums[left])
-                result = current if len(stock) == k and current > result else result
-        return result
+                ans = current if len(stock) == k and current > ans else ans
+        return ans
 
 
 # @lc code=end

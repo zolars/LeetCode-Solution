@@ -12,22 +12,22 @@ class Solution:
         current = 0
         for i in range(minutes):
             current += customers[i] if grumpy[i] == 1 else 0
-        result = current
+        ans = current
         result_left = 0
         for i in range(len(customers) - minutes):
             current += customers[i + minutes] if grumpy[i + minutes] == 1 else 0
             current -= customers[i] if grumpy[i] == 1 else 0
-            if current > result:
-                result = current
+            if current > ans:
+                ans = current
                 result_left = i + 1
-        result = 0
+        ans = 0
         for i in range(len(customers)):
-            result += (
+            ans += (
                 customers[i]
                 if grumpy[i] == 0 or result_left <= i < result_left + minutes
                 else 0
             )
-        return result
+        return ans
 
 
 # @lc code=end

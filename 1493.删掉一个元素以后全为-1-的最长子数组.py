@@ -7,7 +7,7 @@
 # @lc code=start
 class Solution:
     def longestSubarray(self, nums: list[int]) -> int:
-        result = 0
+        ans = 0
         len0 = 0
         left = 0
         for right, num in enumerate(nums):
@@ -16,8 +16,8 @@ class Solution:
                 while len0 > 1:
                     len0 -= 1 if nums[left] == 0 else 0
                     left += 1
-            result = max(result, right - left + 1)
-        return result - 1
+            ans = max(ans, right - left + 1)
+        return ans - 1
 
 
 # @lc code=end

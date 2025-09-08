@@ -7,7 +7,7 @@
 # @lc code=start
 class Solution:
     def maximumLengthSubstring(self, s: str) -> int:
-        result = 0
+        ans = 0
         stock = {}
         left = 0
         for right, c in enumerate(s):
@@ -18,8 +18,8 @@ class Solution:
             while stock[c] > 2:
                 stock[s[left]] -= 1
                 left += 1
-            result = max(result, right - left + 1)
-        return result
+            ans = max(ans, right - left + 1)
+        return ans
 
 
 # @lc code=end

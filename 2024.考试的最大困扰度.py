@@ -7,7 +7,7 @@
 # @lc code=start
 class Solution:
     def maxConsecutiveAnswers(self, answerKey: str, k: int) -> int:
-        result = 0
+        ans = 0
         len_change_T = 0
         left_T = 0
         len_change_F = 0
@@ -25,10 +25,10 @@ class Solution:
                     if answerKey[left_F] == "F":
                         len_change_F -= 1
                     left_F += 1
-            result = max(result, right - left_T + 1)
-            result = max(result, right - left_F + 1)
+            ans = max(ans, right - left_T + 1)
+            ans = max(ans, right - left_F + 1)
 
-        return result
+        return ans
 
 
 # @lc code=end
