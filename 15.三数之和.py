@@ -8,9 +8,6 @@
 class Solution:
     # 看起来笨，但是能过
     def threeSum(self, nums: list[int]) -> list[list[int]]:
-        ans = []
-        nums.sort()
-
         def twoSum(arr, k):
             res = []
             i, j = 0, len(arr) - 1
@@ -27,13 +24,19 @@ class Solution:
                     i += 1
             return res
 
+        n = len(nums)
+        if n < 3:
+            return []
+        ans = []
+        nums.sort()
+
         left = 0
-        while left < len(nums) - 1:
+        while left < n - 1:
             res = twoSum(nums[left + 1 :], -nums[left])
             if res:
                 for r in res:
                     ans.append([nums[left]] + r)
-            while nums[left + 1] == nums[left] and left < len(nums) - 2:
+            while nums[left + 1] == nums[left] and left < n - 2:
                 left += 1
             left += 1
         return ans
