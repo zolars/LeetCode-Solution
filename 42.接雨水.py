@@ -6,19 +6,22 @@
 
 # @lc code=start
 class Solution:
-    # TODO: 完全不会做
+    # O(2n)
     def trap(self, height: list[int]) -> int:
-        ans = left_bns = right_bns = 0
-        i, j = 0, len(height) - 1
-        while i < j:
-            left_bns = max(left_bns, height[i])
-            right_bns = max(right_bns, height[j])
-            if left_bns < right_bns:
-                ans += left_bns - height[i]
+        ans = i = 0
+        n = len(height)
+        max_idx, _ = max(enumerate(height), key=lambda x: x[1])
+        while i < max_idx:
+            start = i
+            while i < n and height[i] <= height[start]:
+                ans += height[start] - height[i]
                 i += 1
-            else:
-                ans += right_bns - height[j]
-                j -= 1
+        i = n - 1
+        while i > max_idx:
+            start = i
+            while i > max_idx and height[i] <= height[start]:
+                ans += height[start] - height[i]
+                i -= 1
         return ans
 
 
