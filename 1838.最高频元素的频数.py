@@ -21,3 +21,8 @@ class Solution:
 
 
 # @lc code=end
+
+if __name__ == "__main__":
+    sol = Solution()
+    ans = sol.maxFrequency(nums=[1, 2, 4], k=5)
+    print(ans)
